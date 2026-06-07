@@ -54,7 +54,7 @@ with tab1:
                 response = client.chat.completions.create(
                     model="llama-3.3-70b-versatile",
                     messages=[
-                        {"role": "system", "content": "You are a data analyst. Always respond in Telugu language."},
+                        {"role": "system", "content": "You are a data analyst. Always respond in English language."},
                         {"role": "user", "content": f"Ee CSV data analyze cheyyi Telugu lo insights cheppu:\n{csv_summary}"}
                     ]
                 )
@@ -81,7 +81,7 @@ with tab2:
                 response = client.chat.completions.create(
                     model="llama-3.3-70b-versatile",
                     messages=[
-                        {"role": "system", "content": "You are a helpful AI assistant. Always respond in Telugu language."},
+                        {"role": "system", "content": "You are a helpful AI assistant. Always respond in English language."},
                         *st.session_state.messages
                     ]
                 )
