@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL TIME WEATHER</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Watermark Text -->
+    <div class="bg-text">WEATHER</div>
+    <div class="bg-text bg-text-2">REAL TIME</div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">REAL TIME WEATHER</h1>
+            <p class="subtitle">Check Weather for Any Village, Mandal, or District</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="locationInput" 
+                    placeholder="ENTER VILLAGE / MANDAL / DISTRICT NAME"
+                    class="search-input"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <span class="btn-text">CHECK WEATHER</span>
+                    <span class="btn-icon">🔍</span>
+                </button>
+            </div>
+            <div class="search-examples">
+                <span>EXAMPLES:</span>
+                <span class="example" onclick="searchLocation('Lakkireddipalle, Kadapa')">Lakkireddipalle</span>
+                <span class="example" onclick="searchLocation('Vempalle, Kadapa')">Vempalle</span>
+                <span class="example" onclick="searchLocation('Pulivendla, Kadapa')">Pulivendla</span>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>FETCHING WEATHER DATA...</span>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden"></div>
+
+        <!-- Weather Results -->
+        <div id="results" class="results hidden">
+            <!-- Location Info -->
+            <div class="location-info">
+                <div class="location-icon">📍</div>
+                <div class="location-details">
+                    <h2 id="villageName" class="village-name"></h2>
+                    <p id="locationHierarchy" class="hierarchy"></p>
+                    <p id="coordinates" class="coordinates"></p>
+                </div>
+            </div>
+
+            <!-- Main Weather Card -->
+            <div id="weatherCard" class="weather-card">
+                <div class="weather-main">
+                    <div class="temp-section">
+                        <span id="temperature" class="temperature"></span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <div class="condition-section">
+                        <span id="conditionIcon" class="condition-icon"></span>
+                        <span id="condition" class="condition"></span>
+                        <span id="feelsLike" class="feels-like"></span>
+                    </div>
+                </div>
+                <div class="weather-time">
+                    <span id="localTime"></span>
+                </div>
+            </div>
+
+            <!-- SAFETY PRECAUTIONS SECTION -->
+            <div id="safetySection" class="safety-section">
+                <div class="safety-header">
+                    <span class="safety-title-icon">🛡️</span>
+                    <h3 class="safety-title">SAFETY PRECAUTIONS</h3>
+                    <span id="severityBadge" class="severity-badge"></span>
+                </div>
+                <div id="safetyPrecautions" class="safety-precautions"></div>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="details-grid">
+                <div class="detail-card">
+                    <div class="detail-icon">💧</div>
+                    <div class="detail-info">
+                        <span class="detail-label">HUMIDITY</span>
+                        <span id="humidity" class="detail-value"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">💨</div>
+                    <div class="detail-info">
+                        <span class="detail-label">WIND SPEED</span>
+                        <span id="windSpeed" class="detail-value"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">📊</div>
+                    <div class="detail-info">
+                        <span class="detail-label">PRESSURE</span>
+                        <span id="pressure" class="detail-value"></span>
+                    </div>
+                </div>
+                <div class="detail-card">
+                    <div class="detail-icon">☁️</div>
+                    <div class="detail-info">
+                        <span class="detail-label">CLOUD COVER</span>
+                        <span id="cloudCover" class="detail-value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="forecast-section">
+                <h3 class="forecast-title">5-DAY FORECAST</h3>
+                <div id="forecast" class="forecast-grid"></div>
+            </div>
+
+            <!-- Last Updated -->
+            <div class="last-updated">
+                <span>LAST UPDATED: </span>
+                <span id="lastUpdated"></span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>DATA PROVIDED BY OPEN-METEO API | REAL-TIME WEATHER CONDITIONS</p>
+            <p class="footer-note">© 2024 REAL TIME WEATHER APP | FOR EDUCATIONAL PURPOSES ONLY</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

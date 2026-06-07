@@ -1,0 +1,18 @@
+
+## Usage
+
+Enter a village, mandal, or district name:
+- Example: "Lakkireddipalle, Kadapa"
+- Example: "Vempalle, Andhra Pradesh"
+- Example: "Pulivendla"
+
+## Technology Stack
+- **Python** - Flask Framework
+- **HTML** - Structure
+- **CSS** - Styling (Dark Mode)
+- **JavaScript** - Frontend Logic
+- **SQLite** - Database
+- **Open-Meteo API** - Weather Data
+
+## Safety Note
+Weather conditions may change rapidly. Always verify with local authorities during severe weather conditions.
